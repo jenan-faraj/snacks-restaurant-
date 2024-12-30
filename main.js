@@ -1,18 +1,27 @@
-let fname = prompt("Enter your name please.").toLowerCase();
-let gender = prompt("Enter your gender: Male / Female");
+let fname = prompt("Enter your name please.");
+export let gender = () => {prompt("Enter your gender: Male / Female").toLowerCase()};
+let array = [];
+    array.push(fname);
 
-if (gender == "male") {
-    console.log(`welcome Mr ${fname}`);
-}else if (gender == "female"){
-    console.log(`welcome Ms ${fname}`);
-}else{
-    console.log(`welcome ${fname}`);
+function genderFun(theName){
+    if (gender() == "male") {
+        console.log(`welcome Mr ${theName}`);
+        array.push(gender());
+    }else if (gender() == "female"){
+        console.log(`welcome Ms ${theName}`);
+        array.push(gender());
+    }else{
+        console.log(`welcome ${theName}`);
+    }
 }
+
+genderFun(fname)
 
 let order = confirm("Do you want to order a shawarma, zinger or burger.")
 if (order === true){
     let yourOrder = prompt("Enter your order");
     console.log(`your order is ${yourOrder}`)
+    array.push(yourOrder);
     alert("order is being prepared")
 }
 let number = 5;
@@ -49,3 +58,8 @@ switch(number){
         numName = "PLEASE TRY AGAIN";
 }
 console.log(numName)
+console.log(array);
+
+for (let i = 0; i < array.length ; i++) {
+    console.log(array[i]);
+}
