@@ -1,15 +1,15 @@
 let fname = prompt("Enter your name please.");
-export let gender = () => {prompt("Enter your gender: Male / Female").toLowerCase()};
+let gender = prompt("Enter your gender: Male / Female").toLowerCase();
 let array = [];
     array.push(fname);
-
+//  EX 3
 function genderFun(theName){
-    if (gender() == "male") {
+    if (gender == "male") {
         console.log(`welcome Mr ${theName}`);
-        array.push(gender());
-    }else if (gender() == "female"){
+        array.push(gender);
+    }else if (gender == "female"){
         console.log(`welcome Ms ${theName}`);
-        array.push(gender());
+        array.push(gender);
     }else{
         console.log(`welcome ${theName}`);
     }
@@ -59,7 +59,66 @@ switch(number){
 }
 console.log(numName)
 console.log(array);
-
+// EX 3
 for (let i = 0; i < array.length ; i++) {
     console.log(array[i]);
 }
+
+// --Q1
+// -1
+let reverseArray1 = [5, 3, 2, 4, 4, 3];
+let newArray1 =[];
+function test () {
+    for (let i = reverseArray1.length; i > 0; i--) {
+        let num = reverseArray1.pop()
+        newArray1.push(num)
+    }
+    console.log(newArray1);
+
+}
+
+test ()
+
+// -2
+
+let reverseArray = [5, 3, 2, 4, 4, 3];
+let newArray =[];
+for (let i = (reverseArray.length - 1); i >= 0; i--) {
+    newArray.push(reverseArray[i])
+}
+console.log(newArray);
+
+// --Q2
+for (let i = 0; i <= 15 ; i++) {
+    if (i % 2 === 0){
+        console.log(`${i} is even`)
+    }else{
+        console.log(`${i} is odd`)
+    }
+}
+
+// --Q3
+let fruits = "orange";
+let newFruits = fruits.split("").sort().join("");
+console.log(newFruits);
+
+// --Q4
+function numbersFun(numbers) {
+    let result = "";
+
+    for (let i = 0; i < numbers.length; i++) {
+        result += numbers[i]; 
+        if (i < numbers.length - 1 && numbers[i] % 2 === 0 && numbers[i + 1] % 2 === 0) {
+            result += "-"; 
+        }
+    }
+
+    return result;
+}
+let output = numbersFun('025468');
+console.log(output);
+
+// --Q5
+let age = 20;
+let msg = age >= 18 ? "You are an adult" :"You are a minor"
+console.log(msg)
