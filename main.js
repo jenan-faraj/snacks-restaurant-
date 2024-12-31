@@ -2,6 +2,7 @@ let fname = prompt("Enter your name please.");
 let gender = prompt("Enter your gender: Male / Female").toLowerCase();
 let array = [];
 array.push(fname);
+
 //  EX 3
 function genderFun(theName) {
   if (gender == "male") {
@@ -24,6 +25,33 @@ if (order === true) {
   array.push(yourOrder);
   alert("order is being prepared");
 }
+
+// EX4:DOM
+let divContainer = document.createElement("div");
+divContainer.setAttribute("id", "container");
+for (let i = 0; i < array.length; i++) {
+  let children = document.createElement("p");
+  children.textContent = array[i];
+  divContainer.appendChild(children);
+}
+document.body.appendChild(divContainer);
+
+let userInformation = document.createElement("div");
+userInformation.setAttribute("id", "userContainer");
+let userName = document.createElement("p");
+let userResult = document.createElement("ol");
+let userGender = document.createElement("li");
+let userOrder = document.createElement("li");
+userName.textContent = array[0];
+userGender.textContent = array[1];
+userOrder.textContent = array[2];
+
+userInformation.appendChild(userName);
+userInformation.appendChild(userResult);
+userResult.appendChild(userGender);
+userResult.appendChild(userOrder);
+document.body.appendChild(userInformation);
+
 let number = 5;
 let numName = "";
 switch (number) {
@@ -59,6 +87,7 @@ switch (number) {
 }
 console.log(numName);
 console.log(array);
+
 // EX 3
 for (let i = 0; i < array.length; i++) {
   console.log(array[i]);
@@ -124,3 +153,36 @@ console.log(output);
 let age = 20;
 let msg = age >= 18 ? "You are an adult" : "You are a minor";
 console.log(msg);
+
+
+// EX4 , Q1 :
+
+let fruitsArray = ["orange", "banana", "apple", "blueberry", "strawberry"];
+let fruitsImages = ["img/orange.jpg", "img/banana.jpg", "img/apple.jpg", "img/blueberry.jpg", "img/strawberry.jpg"];
+
+let fruitsContainer = document.createElement("div");
+let fruitsUL = document.createElement("ul");
+fruitsContainer.appendChild(fruitsUL);
+
+for (let i = 0; i < fruitsArray.length; i++) {
+  let fruitsLi = document.createElement("li");
+  let fruitsImgItem = document.createElement("img");
+
+  fruitsUL.appendChild(fruitsLi);
+  fruitsLi.append(fruitsArray[i]);
+  fruitsLi.appendChild(fruitsImgItem);
+
+  fruitsImgItem.setAttribute("src", fruitsImages[i]);
+  fruitsImgItem.style = "width:150px; height:150px;display:block";
+  
+}
+
+document.body.appendChild(fruitsContainer);
+
+
+// EX4 , Q2 :
+let numbersArray = [1,2,3,4,5,6];
+function numberIndex(a,n) {
+  return console.log(a.indexOf(n));
+}
+numberIndex(numbersArray, 4)
